@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/id_acct_created_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/acct_create_confirm" />
+
+    <Button
+        android:id="@+id/id_acct_creat_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_acct_created_msg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_continue" />
+
+</RelativeLayout>

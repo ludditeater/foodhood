@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wattscorp.foodhoodui"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="23" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".FoodHoodMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChopBoardFragment"
+            android:label="@string/title_activity_chop_board_fragment" >
+        </activity>
+        
+        <activity
+            android:name=".fragments.FragmentMainChopBoard"
+            android:label="@string/title_activity_fragment_main_chop_board" >
+        </activity>
+        <activity
+            android:name=".fragments.FragmentByZipcode"
+            android:label="@string/title_activity_fragment_by_zipcode" >
+        </activity>
+        <activity
+            android:name=".fragments.FragmentNearMe"
+            android:label="@string/title_activity_fragment_near_me" >
+        </activity>
+        <activity
+            android:name=".LoginOrSignupActivityMain"
+            android:label="@string/title_activity_login_or_signup_activity_main" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.LoginOrSignupActivityMain" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.FragmentSignup"
+            android:label="@string/title_activity_fragment_signup" >
+        </activity>
+        <activity
+            android:name=".AccountCreationConfirmationActivity"
+            android:label="@string/title_activity_account_creation_confirmation" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.AccountCreationConfirmationActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChefAccountValidationActivity"
+            android:label="@string/title_activity_chef_account_validation" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.ChefAccountValidationActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CreateChefMenuItemActivity"
+            android:label="@string/title_activity_create_chef_menu_item" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.CreateChefMenuItemActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".UserCartItemsListActivity"
+            android:label="@string/title_cart" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.UserCartItemsListActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

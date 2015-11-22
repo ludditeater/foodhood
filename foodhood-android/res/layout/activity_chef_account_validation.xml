@@ -1,0 +1,64 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/id_chef_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/chef_code"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/id_button_Activate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_chef_code"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_activate" />
+
+        <TextView
+            android:id="@+id/id_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_button_Activate"
+            android:layout_marginLeft="80dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="@string/or"
+            android:includeFontPadding="false" />
+
+        <TextView
+            android:id="@+id/id_call_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_or"
+            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/call_us" />
+
+        <TextView
+            android:id="@+id/id_ph_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_call_us"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/call_number" />
+    </RelativeLayout>
+
+</ScrollView>

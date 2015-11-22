@@ -1,0 +1,174 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="20dp"
+    android:layout_marginStart="20dp"
+    tools:context="com.creativeAppsBapatla.foodWood.LandingPage" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/id_menu_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/item_name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/id_menu_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_name"
+            android:layout_marginTop="20dp"
+            android:hint="@string/item_price"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/id_menu_item_available_from_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_price"
+            android:layout_marginTop="40dp"
+            android:text="@string/item_available"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/item_menu_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/id_menu_item_available_from_text"
+            android:layout_toRightOf="@+id/id_menu_item_available_from_text"
+            android:contentDescription="@string/food_image"
+            android:src="@drawable/pani_puri" >
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_from"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_available_from_text"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/id_menu_item_available_from_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18sp"
+                android:layout_marginStart="20dp"
+                android:hint="@string/item_available_date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/id_menu_item_available_from_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/id_menu_item_available_from_date"
+                android:layout_toRightOf="@+id/id_menu_item_available_from_date"
+                android:hint="@string/item_available_time"
+                android:inputType="time" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/id_menu_item_available_till_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout_from"
+            android:layout_marginTop="20dp"
+            android:text="@string/item_till"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_till"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_available_till_text"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/id_menu_item_available_till_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:hint="@string/item_till_date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/id_menu_item_available_till_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/id_menu_item_available_till_date"
+                android:layout_toRightOf="@+id/id_menu_item_available_till_date"
+                android:hint="@string/item_till_time"
+                android:inputType="time" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/id_menu_item_home_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout_till"
+            android:hint="@string/home_num"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/id_menu_item_available_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_home_num"
+            android:hint="@string/street_address"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/id_menu_item_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_available_address"
+            android:hint="@string/city"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/id_menu_item_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_city"
+            android:hint="@string/state"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/id_menu_item_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_state"
+            android:hint="@string/zipcode"
+            android:inputType="text|number" />
+
+        <Button
+            android:id="@+id/id_button_add_to_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_menu_item_zip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/add_to_menu" />
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="true"
+    android:orientation="horizontal" 
+    android:weightSum="5">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_weight="2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
+
+        <ImageView
+            android:id="@+id/near_me_view_item_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/food_image"
+            android:src="@drawable/pani_puri" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/near_me_view_available_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/ava_now" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_ItemAvailableFromId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/ava_when"
+            android:textSize="14sp" >
+        </TextView>
+        <TextView
+            android:id="@+id/near_me_view_ItemAvailableFromTimeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" 
+        android:layout_weight="3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
+
+        <TextView
+            android:id="@+id/near_me_view_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/item_name"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_by_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_FullNameId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_chef_name"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_HomeNumId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/address1"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_StreetNameId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address2"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_CityStateZipId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address3"
+            android:textSize="14sp" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical" 
+        android:layout_weight="0"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp">
+
+        <TextView
+            android:id="@+id/near_me_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/item_price"
+            android:textSize="14sp" >
+        </TextView>
+
+        <ToggleButton
+            android:id="@+id/near_me_view_toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:tag=""
+            android:text="@string/add_now"
+            android:textOff="@string/add_order_toggle_on"
+            android:textOn="@string/added_toggle" />
+
+        <TextView
+            android:id="@+id/near_me_view_available_till"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/ava_till"
+            android:textSize="14sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/near_me_view_ItemAvailableTillId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/ava_till_hrs"
+            android:textSize="16sp" >
+        </TextView>
+        <TextView
+            android:id="@+id/near_me_view_ItemAvailableTillTimeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

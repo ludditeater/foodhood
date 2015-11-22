@@ -1,0 +1,70 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+        <EditText
+            android:id="@+id/id_user_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName" />
+        
+        <EditText
+            android:id="@+id/id_user_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"
+            android:layout_below="@+id/id_user_firstname"
+            android:inputType="textPersonName" 
+            />
+
+        <EditText
+            android:id="@+id/id_account_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/signup_username"
+            android:layout_below="@+id/id_user_lastname"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/id_account_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_account_user"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/id_confirm_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_account_password"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword" />
+
+        <CheckBox
+            android:id="@+id/id_chef_acct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_confirm_password"
+            android:layout_marginTop="10dp"
+            android:hint="@string/create_as_chef" />
+
+        <Button
+            android:id="@+id/id_button_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_chef_acct"
+            android:layout_marginTop="20dp"
+            android:text="@string/sign_me_up" />
+    </RelativeLayout>
+
+</ScrollView>
