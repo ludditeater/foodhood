@@ -6,6 +6,7 @@ public class User {
     private String firstname;
     private String lastname;
     private String userrolename;
+    public static final String CHEF_USER_ROLE="CHEF";
 
     public String getUsername() {
         return username;

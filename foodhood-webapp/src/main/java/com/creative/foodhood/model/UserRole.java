@@ -1,4 +1,4 @@
-package com.creative.foodwood.model;
+package com.creative.foodhood.model;
 
 import java.util.List;
 

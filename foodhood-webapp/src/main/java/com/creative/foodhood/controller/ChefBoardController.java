@@ -1,4 +1,4 @@
-package com.creative.foodwood.controller;
+package com.creative.foodhood.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.creative.foodwood.dao.MenuItemDao;
-import com.creative.foodwood.entity.ChefMenuItemEntity;
-import com.creative.foodwood.model.ChefMenuItem;
+import com.creative.foodhood.dao.MenuItemDao;
+import com.creative.foodhood.entity.ChefMenuItemEntity;
+import com.creative.foodhood.model.ChefMenuItem;
 
 @RestController
-@RequestMapping("chefboard")
+@RequestMapping("/chefboard")
 public class ChefBoardController {
 	@Autowired
 	private MenuItemDao menuItemDao;

@@ -1,4 +1,4 @@
-package com.creative.foodwood.model;
+package com.creative.foodhood.model;
 
 public class User {
     private String username;

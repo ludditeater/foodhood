@@ -1,4 +1,4 @@
-package com.creative.foodwood.entity;
+package com.creative.foodhood.entity;
 
 import java.util.Date;
 

@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.wattscorp.foodhoodui.FoodWoodMainActivity" >
 
-    <item
+   <!-- <item
         android:id="@+id/action_cart_id"
         android:orderInCategory="100"
         android:icon="@drawable/ic_action_action_shopping_cart"
         android:title="@string/action_cart"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/> --> 
     
     <item
         android:id="@+id/action_Login_id"

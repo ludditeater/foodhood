@@ -1,5 +1,6 @@
 package com.wattscorp.foodhoodui.adapter;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,13 +10,19 @@ import java.util.Map;
 
 import com.wattscorp.foodhoodui.R;
 import com.wattscorp.foodhoodui.dto.ChefMenuItem;
+import com.wattscorp.foodhoodui.helper.ActivityConstants;
+import com.wattscorp.foodhoodui.helper.Base64;
+import com.wattscorp.foodhoodui.security.SessionManager;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -62,9 +69,9 @@ public class MenuListNearMeAdapter extends ArrayAdapter<ChefMenuItem> {
 		TextView chefItemAvailableTill = (TextView) rowView.findViewById(R.id.near_me_view_ItemAvailableTillId);
 		TextView chefItemAvailableFromTime = (TextView) rowView.findViewById(R.id.near_me_view_ItemAvailableFromTimeId);
 		TextView chefItemAvailableTillTime = (TextView) rowView.findViewById(R.id.near_me_view_ItemAvailableTillTimeId);
-		
+		ImageView chefItemimage = (ImageView) rowView.findViewById(R.id.near_me_view_item_image);
 		TextView itemPrice = (TextView) rowView.findViewById(R.id.near_me_item_price);
-		
+
 		// ImageView chefItemImage = (ImageView)
 		// rowView.findViewById(R.id.near_me_view_item_image);
 		ChefMenuItem menuItem = menuItemList.get(position);
@@ -73,7 +80,7 @@ public class MenuListNearMeAdapter extends ArrayAdapter<ChefMenuItem> {
 		chefHomeNum.setText(menuItem.getChefHomeNum());
 		itemName.setText(menuItem.getItemName());
 		chefStreetName.setText(menuItem.getChefStreetName());
-		itemPrice.setText("Price: $"+menuItem.getPrice());
+		itemPrice.setText("Price: $" + menuItem.getPrice());
 		chefCityStateZip.setText(
 				menuItem.getChefCity() + SEPERATOR + menuItem.getChefState() + SEPERATOR + menuItem.getChefZipcode());
 		if (menuItem.getChefItemAvailableFrom() != null) {
@@ -82,7 +89,16 @@ public class MenuListNearMeAdapter extends ArrayAdapter<ChefMenuItem> {
 		}
 		if (menuItem.getChefItemAvailableTill() != null) {
 			chefItemAvailableTill.setText(day_sdf.format(menuItem.getChefItemAvailableTill()));
-			chefItemAvailableTillTime.setText(hour_sdf.format(menuItem.getChefItemAvailableFrom()));
+			chefItemAvailableTillTime.setText(hour_sdf.format(menuItem.getChefItemAvailableTill()));
+		}
+
+		if (menuItem.getImageSrc() != null && menuItem.getImageSrc().length() > 0) {
+			try {
+				Bitmap decodedByte = Base64.decodeToBitMap(menuItem.getImageSrc());
+				chefItemimage.setImageBitmap(decodedByte);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 		final ToggleButton button = (ToggleButton) rowView.findViewById(R.id.near_me_view_toggleButton1);
@@ -90,6 +106,11 @@ public class MenuListNearMeAdapter extends ArrayAdapter<ChefMenuItem> {
 		button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View toggleView) {
+				if(!new SessionManager(context).isLoggedIn()){
+					Intent loginIntent = new Intent(ActivityConstants.LOGIN_SIGNUP_MAIN);
+					context.startActivity(loginIntent);
+					return;
+				}
 				Integer index = Integer.valueOf(toggleView.getTag().toString());
 				if (button.isChecked()) {
 					selectedMenuItemMap.put(index, menuItemList.get(index));
@@ -104,7 +125,7 @@ public class MenuListNearMeAdapter extends ArrayAdapter<ChefMenuItem> {
 	};
 
 	public List<ChefMenuItem> getSelectedMenuItemList() {
-		return new ArrayList<ChefMenuItem> (selectedMenuItemMap.values());
+		return new ArrayList<ChefMenuItem>(selectedMenuItemMap.values());
 	}
 
 	@Override

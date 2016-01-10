@@ -6,7 +6,7 @@ import com.wattscorp.foodhoodui.R;
 import com.wattscorp.foodhoodui.adapter.ChefMenuListAdapter;
 import com.wattscorp.foodhoodui.connections.RetrieveChefMenuItemsAsyncTask;
 import com.wattscorp.foodhoodui.dto.ChefMenuItem;
-import com.wattscorp.foodhoodui.helper.AcitivityConstants;
+import com.wattscorp.foodhoodui.helper.ActivityConstants;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,7 +39,7 @@ public class FragmentMainChopBoard extends Fragment {
 		addempbtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent addMenuItemIntent = new Intent(AcitivityConstants.CHEF_MENU_ITEM_CREATION);
+				Intent addMenuItemIntent = new Intent(ActivityConstants.CHEF_MENU_ITEM_CREATION);
 				startActivity(addMenuItemIntent);
 			};
 		});

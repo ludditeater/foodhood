@@ -5,8 +5,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-   
-
     <ListView
         android:id="@+id/cart_items_list_id"
         android:layout_width="fill_parent"
@@ -16,13 +14,31 @@
         android:dividerHeight="4dp"
         android:footerDividersEnabled="true"
         android:headerDividersEnabled="true" />
-    
-     <Button
-        android:id="@+id/cart_items_checkout_id"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="@string/checkout" />
+        android:orientation="horizontal" 
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/cart_items_checkout_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkout" 
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/cart_items_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_weight="2"
+            android:gravity="center"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,97 +1,134 @@
-package com.creative.foodwood.model;
+package com.creative.foodhood.model;
 
-import org.joda.time.DateTime;
+import java.util.Date;
 
-public class OrderItem {
-    private String itemname;
-    private DateTime fromDate;
-    private DateTime tillDate;
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
-    private String zipCode;
-    private String chefId;
-    private String chefName;
-    private String orderStatus;
+public class OrderItem{
 
-    public String getItemname() {
-        return itemname;
-    }
+	private String orderItemDetailId;
+	private String menuItemId;
+	private String itemName;
+	private String chefName;
+	private String chefAddress1;
+	private String chefAddress2;
+	private String chefCityStateZipcode;
+	private String chefId;
+	private Date chefItemAvailableTill;
+	private String totalPrice;
+	private String quantity;
+	private String customerName;
+	private String customerId;
+	private String paymentStatus;
 
-    public void setItemname(String itemname) {
-        this.itemname = itemname;
-    }
+	public String getMenuItemId() {
+		return menuItemId;
+	}
 
-    public DateTime getFromDate() {
-        return fromDate;
-    }
+	public void setMenuItemId(String menuItemId) {
+		this.menuItemId = menuItemId;
+	}
 
-    public void setFromDate(DateTime fromDate) {
-        this.fromDate = fromDate;
-    }
+	public String getItemName() {
+		return itemName;
+	}
 
-    public DateTime getTillDate() {
-        return tillDate;
-    }
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
 
-    public void setTillDate(DateTime tillDate) {
-        this.tillDate = tillDate;
-    }
+	public String getChefName() {
+		return chefName;
+	}
 
-    public String getAddressLine1() {
-        return addressLine1;
-    }
+	public void setChefName(String chefName) {
+		this.chefName = chefName;
+	}
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
-    }
+	public String getChefAddress1() {
+		return chefAddress1;
+	}
 
-    public String getAddressLine2() {
-        return addressLine2;
-    }
+	public void setChefAddress1(String chefAddress1) {
+		this.chefAddress1 = chefAddress1;
+	}
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
+	public String getChefAddress2() {
+		return chefAddress2;
+	}
 
-    public String getAddressLine3() {
-        return addressLine3;
-    }
+	public void setChefAddress2(String chefAddress2) {
+		this.chefAddress2 = chefAddress2;
+	}
 
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
-    }
+	public String getChefCityStateZipcode() {
+		return chefCityStateZipcode;
+	}
 
-    public String getZipCode() {
-        return zipCode;
-    }
+	public void setChefCityStateZipcode(String chefCityStateZipcode) {
+		this.chefCityStateZipcode = chefCityStateZipcode;
+	}
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
+	public String getChefId() {
+		return chefId;
+	}
 
-    public String getChefId() {
-        return chefId;
-    }
+	public void setChefId(String chefId) {
+		this.chefId = chefId;
+	}
 
-    public void setChefId(String chefId) {
-        this.chefId = chefId;
-    }
+	public Date getChefItemAvailableTill() {
+		return chefItemAvailableTill;
+	}
 
-    public String getChefName() {
-        return chefName;
-    }
+	public void setChefItemAvailableTill(Date chefItemAvailableTill) {
+		this.chefItemAvailableTill = chefItemAvailableTill;
+	}
 
-    public void setChefName(String chefName) {
-        this.chefName = chefName;
-    }
+	public String getTotalPrice() {
+		return totalPrice;
+	}
 
-    public String getOrderStatus() {
-        return orderStatus;
-    }
+	public void setTotalPrice(String totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
+
+	public String getOrderItemDetailId() {
+		return orderItemDetailId;
+	}
+
+	public void setOrderItemDetailId(String orderItemDetailId) {
+		this.orderItemDetailId = orderItemDetailId;
+	}
 
 }

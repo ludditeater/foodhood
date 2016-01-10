@@ -6,7 +6,8 @@ import com.wattscorp.foodhoodui.R;
 import com.wattscorp.foodhoodui.adapter.MenuListNearMeAdapter;
 import com.wattscorp.foodhoodui.connections.RetrieveMenuItemsNearMenAsyncTask;
 import com.wattscorp.foodhoodui.dto.ChefMenuItem;
-import com.wattscorp.foodhoodui.helper.AcitivityConstants;
+import com.wattscorp.foodhoodui.helper.ActivityConstants;
+import com.wattscorp.foodhoodui.security.SessionManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,12 +40,13 @@ public class FragmentNearMe extends Fragment {
 		cartBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent goToCartIntent = new Intent(AcitivityConstants.GO_TO_CART);
-				goToCartIntent.putParcelableArrayListExtra("cartList", (ArrayList<? extends Parcelable>) adapter.getSelectedMenuItemList());
-				startActivity(goToCartIntent);
+				Intent nextIntent = new Intent(ActivityConstants.GO_TO_CART);
+				nextIntent.putParcelableArrayListExtra("cartList",
+						(ArrayList<? extends Parcelable>) adapter.getSelectedMenuItemList());
+				startActivity(nextIntent);
 			};
 		});
-		
+
 		new RetrieveMenuItemsNearMenAsyncTask(adapter, this.getContext()).execute();
 		return rootView;
 	}

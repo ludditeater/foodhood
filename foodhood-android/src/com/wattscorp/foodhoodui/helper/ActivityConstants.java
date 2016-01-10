@@ -1,6 +1,6 @@
 package com.wattscorp.foodhoodui.helper;
 
-public class AcitivityConstants {
+public class ActivityConstants {
     public static final String LOGIN_SIGNUP_MAIN = "com.wattscorp.foodhoodui.LoginOrSignupActivityMain";
     public static final String ACCOUNT_CREATION_CONFIRM = "com.wattscorp.foodhoodui.AccountCreationConfirmationActivity";
     public static final String CHEF_ACTIVATION = "com.wattscorp.foodhoodui.ChefAccountValidationActivity";

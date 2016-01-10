@@ -2,10 +2,11 @@ package com.wattscorp.foodhoodui;
 
 import java.util.Locale;
 
-import com.wattscorp.foodhoodui.fragments.FragmentByZipcode;
+import com.wattscorp.foodhoodui.fragments.FragmentChefOrders;
 import com.wattscorp.foodhoodui.fragments.FragmentMainChopBoard;
 import com.wattscorp.foodhoodui.fragments.FragmentNearMe;
-import com.wattscorp.foodhoodui.helper.AcitivityConstants;
+import com.wattscorp.foodhoodui.fragments.FragmentOrderHistory;
+import com.wattscorp.foodhoodui.helper.ActivityConstants;
 import com.wattscorp.foodhoodui.security.SessionManager;
 
 import android.content.Intent;
@@ -34,6 +35,8 @@ public class FoodHoodMainActivity extends ActionBarActivity implements ActionBar
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+
+	private int noOfTabs = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +76,12 @@ public class FoodHoodMainActivity extends ActionBarActivity implements ActionBar
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu  menu) {
+	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.food_wood_main, menu);
 		updateMenuItems(menu);
 		return true;
 	}
-
 
 	private void updateMenuItems(Menu menuOptions) {
 		SessionManager currentSession = new SessionManager(FoodHoodMainActivity.this.getApplicationContext());
@@ -93,7 +95,7 @@ public class FoodHoodMainActivity extends ActionBarActivity implements ActionBar
 			logoutItem.setVisible(true);
 			loggedInUserItem.setVisible(true);
 			loggedInUserItem.setTitle(currentSession.getUserDetails().getFirstname());
-			
+
 		} else {
 			loginItem.setVisible(true);
 			logoutItem.setVisible(false);
@@ -108,10 +110,10 @@ public class FoodHoodMainActivity extends ActionBarActivity implements ActionBar
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_Login_id) {
-			Intent intent = new Intent(AcitivityConstants.LOGIN_SIGNUP_MAIN);
+			Intent intent = new Intent(ActivityConstants.LOGIN_SIGNUP_MAIN);
 			startActivity(intent);
 			return true;
-		}else if (id == R.id.action_Logout_id) {
+		} else if (id == R.id.action_Logout_id) {
 			new SessionManager(FoodHoodMainActivity.this.getApplicationContext()).logoutUser();
 			return true;
 		}
@@ -149,35 +151,75 @@ public class FoodHoodMainActivity extends ActionBarActivity implements ActionBar
 			// Return a PlaceholderFragment (defined as a static inner class
 			// below).
 			int sectionNumber = position + 1;
-			switch (sectionNumber) {
-			case 1:
-				return FragmentNearMe.newInstance(sectionNumber);
-			case 2:
-				return FragmentByZipcode.newInstance(sectionNumber);
-			case 3:
-				return FragmentMainChopBoard.newInstance(sectionNumber);
-			default:
-				return null;
+			if (noOfTabs == 0) {
+				noOfTabs = getCount();
+			}
+			if (noOfTabs == 4) {
+				switch (sectionNumber) {
+
+				case 1:
+					return FragmentMainChopBoard.newInstance(sectionNumber);
+				case 2:
+					return FragmentChefOrders.newInstance(sectionNumber);
+				case 3:
+					return FragmentNearMe.newInstance(sectionNumber);
+				case 4:
+					return FragmentOrderHistory.newInstance(sectionNumber);
+				default:
+					return null;
+				}
+			} else {
+				switch (sectionNumber) {
+
+				case 1:
+					return FragmentNearMe.newInstance(sectionNumber);
+				case 2:
+					return FragmentOrderHistory.newInstance(sectionNumber);
+				default:
+					return null;
+				}
 			}
 
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			SessionManager sessionMgr = new SessionManager(getApplicationContext());
+			if (sessionMgr.isLoggedIn() && sessionMgr.isChef()) {
+				noOfTabs = 4;
+			} else {
+				noOfTabs = 2;
+			}
+			return noOfTabs;
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
 			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.food_near_me).toUpperCase(l);
-			case 1:
-				return getString(R.string.food_by_zip).toUpperCase(l);
-			case 2:
-				return getString(R.string.add_food).toUpperCase(l);
+
+			if (noOfTabs == 0) {
+				noOfTabs = getCount();
+			}
+			if (noOfTabs == 4) {
+				switch (position) {
+				case 0:
+					return getString(R.string.chop_board).toUpperCase(l);
+				case 1:
+					return getString(R.string.chef_orders).toUpperCase(l);
+				case 2:
+					return getString(R.string.food_near_me).toUpperCase(l);
+				case 3:
+					return getString(R.string.order_history).toUpperCase(l);
+
+				}
+			} else {
+				switch (position) {
+				case 0:
+					return getString(R.string.food_near_me).toUpperCase(l);
+				case 1:
+					return getString(R.string.order_history).toUpperCase(l);
+
+				}
 			}
 			return null;
 		}

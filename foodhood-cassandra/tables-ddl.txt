@@ -1,0 +1,91 @@
+CREATE TABLE foodhood.user (
+    firstname text,
+    lastname text,
+    password text,
+    username text PRIMARY KEY,
+    userrolename text,
+	activationCode text,
+	activationStatus text
+) WITH bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+
+
+CREATE TABLE foodhood.menu_item (
+    menuItemId text PRIMARY KEY,
+	itemName text,
+    chefFirstName text,
+    chefLastName text,
+    chefHomeNum text ,
+    userrolename text,
+    chefStreetName text,
+    chefCity text,
+    chefZipcode text ,
+    chefState text,
+    imageSrc text,
+	chefItemAvailableFrom timestamp,
+	chefItemAvailableTill timestamp,
+    chefId text
+) WITH bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+
+CREATE INDEX MENU_ITEM_CHEF_ID on foodhood.menu_item (chefid);
+
+
+
+CREATE TABLE foodhood.order_item_details (
+    orderitemdetailid text PRIMARY KEY,
+    chefaddress1 text,
+    chefaddress2 text,
+    chefcitystatezipcode text,
+    chefid text,
+    chefitemavailabletill timestamp,
+    chefname text,
+    customerid text,
+    customername text,
+    itemname text,
+    menuitemid text,
+    orderid text,
+    paymentstatus text,
+    quantity text,
+    totalprice text
+) WITH bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+	
+	CREATE INDEX order_item_details_customerid_index on foodhood.order_item_details (customerid);
+	CREATE INDEX order_item_details_chefid_index on foodhood.order_item_details (chefid);
+	CREATE INDEX order_item_details_orderid_index on foodhood.order_item_details (orderid);
+
+

@@ -1,4 +1,4 @@
-package com.creative.foodwood.entity;
+package com.creative.foodhood.entity;
 
 import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;
@@ -12,7 +12,7 @@ public class UserEntity {
     private String firstname;
     private String lastname;
     private String userrolename;
-    private String activationCode;
+    private String activationcode;
     private String activationStatus;
 
     public String getUsername() {
@@ -63,14 +63,6 @@ public class UserEntity {
                 + " userrole :: " + userrolename;
     }
 
-    public String getActivationCode() {
-        return activationCode;
-    }
-
-    public void setActivationCode(String activationCode) {
-        this.activationCode = activationCode;
-    }
-
     public String getActivationStatus() {
         return activationStatus;
     }
@@ -78,6 +70,14 @@ public class UserEntity {
     public void setActivationStatus(String activationStatus) {
         this.activationStatus = activationStatus;
     }
+
+	public String getActivationcode() {
+		return activationcode;
+	}
+
+	public void setActivationcode(String activationcode) {
+		this.activationcode = activationcode;
+	}
 
 
 }

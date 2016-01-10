@@ -20,7 +20,7 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 
 public class ConnectionHelper {
-	public static final String IP_PORT_CONTEXT = "http://192.168.0.106:8080/foodhood/rest";
+	public static final String IP_PORT_CONTEXT = "http://192.168.0.107:8080/foodhood/rest";
 	
 	public static String sendDataToServer(String jsonDataString, String url) {
 		HttpClient httpclient = new DefaultHttpClient();
@@ -48,7 +48,7 @@ public class ConnectionHelper {
 	public static String sendDataToServer(List<NameValuePair> params, String url) {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httpost = new HttpPost(url);
-		String resultSt = null;
+		String resultSt = "Error occured";
 		try {
 			httpost.setEntity(new UrlEncodedFormEntity(params));
 			HttpResponse response = httpclient.execute(httpost);

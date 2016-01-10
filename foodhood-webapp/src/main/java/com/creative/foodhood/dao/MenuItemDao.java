@@ -1,11 +1,11 @@
-package com.creative.foodwood.dao;
+package com.creative.foodhood.dao;
 
 import java.util.List;
 
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.creative.foodwood.entity.ChefMenuItemEntity;
+import com.creative.foodhood.entity.ChefMenuItemEntity;
 
 public interface MenuItemDao extends CrudRepository<ChefMenuItemEntity, String> {
     

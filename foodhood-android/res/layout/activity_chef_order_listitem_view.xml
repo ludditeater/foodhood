@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/chef_order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/pickup_by" />
+
+    <TextView
+        android:id="@+id/chef_order_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/user_name" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_status" />
+
+        <TextView
+            android:id="@+id/chef_order_payment_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_amount" />
+
+        <TextView
+            android:id="@+id/chef_order_payment_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:text="20$" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/chef_order_mark_paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=""
+        android:text="@string/mark_as_paid" />
+
+    <RelativeLayout
+        android:id="@+id/chef_order_relative_layout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/item_name_quant" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toLeftOf="@+id/chef_order_amount"
+            android:layout_toStartOf="@+id/chef_order_amount"
+            android:text="@string/hist_item_till" />
+
+        <TextView
+            android:id="@+id/chef_order_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/hist_item_amount" />
+    </RelativeLayout>
+
+</LinearLayout>

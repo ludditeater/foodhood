@@ -1,16 +1,16 @@
 package com.wattscorp.foodhoodui.adapter;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import com.wattscorp.foodhoodui.R;
-import com.wattscorp.foodhoodui.connections.DownloadImageAsyncTask;
 import com.wattscorp.foodhoodui.dto.ChefMenuItem;
+import com.wattscorp.foodhoodui.helper.Base64;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,21 +79,16 @@ public class ChefMenuListAdapter extends ArrayAdapter<ChefMenuItem> {
 		}
 		if (menuItem.getChefItemAvailableTill() != null) {
 			chefItemAvailableTill.setText(day_sdf.format(menuItem.getChefItemAvailableTill()));
-			chefItemAvailableTillTime.setText(hour_sdf.format(menuItem.getChefItemAvailableFrom()));
+			chefItemAvailableTillTime.setText(hour_sdf.format(menuItem.getChefItemAvailableTill()));
 		}
-		// new DownloadImageAsyncTask(chefItemImage).execute("");
-		// editb.setTag(position);
-		// editb.setOnClickListener(new View.OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		// Integer pos = (Integer) v.getTag();
-		// Intent editemppage = new
-		// Intent("com.singhdatagroup.cx3.admin.manageEmployees.EDITEMPPROFILE");
-		// Employee emp = emplist.get(pos);
-		// editemppage.putExtra("selected_emp_obj", emp);
-		// v.getContext().startActivity(editemppage);
-		// };
-		// });
+		if (menuItem.getImageSrc() != null && menuItem.getImageSrc().length() > 0) {
+			try {
+				Bitmap decodedByte = Base64.decodeToBitMap(menuItem.getImageSrc());
+				chefItemImage.setImageBitmap(decodedByte);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 		return rowView;
 

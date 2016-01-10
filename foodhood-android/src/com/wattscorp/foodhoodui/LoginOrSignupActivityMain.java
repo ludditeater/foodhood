@@ -96,16 +96,17 @@ public class LoginOrSignupActivityMain extends ActionBarActivity implements Acti
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
-		} else if (id == R.id.action_cart_id) {
-			
-
-			Intent intent = new Intent("");
-//			intent.putExtra("mylist", myList);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(intent);
-			return true;
-		}
+		} 
+//		else if (id == R.id.action_cart_id) {
+//			
+//
+//			Intent intent = new Intent("");
+////			intent.putExtra("mylist", myList);
+//			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//			startActivity(intent);
+//			return true;
+//		}
 
 		return super.onOptionsItemSelected(item);
 	}

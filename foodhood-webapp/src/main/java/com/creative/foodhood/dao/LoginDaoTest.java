@@ -1,9 +1,9 @@
-package com.creative.foodwood.dao;
+package com.creative.foodhood.dao;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
-import com.creative.foodwood.entity.UserEntity;
+import com.creative.foodhood.entity.UserEntity;
 
 public class LoginDaoTest {
     public static void main(String[] args) {

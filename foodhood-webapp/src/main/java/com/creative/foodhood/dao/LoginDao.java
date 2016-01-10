@@ -1,9 +1,9 @@
-package com.creative.foodwood.dao;
+package com.creative.foodhood.dao;
 
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.creative.foodwood.entity.UserEntity;
+import com.creative.foodhood.entity.UserEntity;
 
 public interface LoginDao extends CrudRepository<UserEntity, String> {
     

@@ -53,6 +53,16 @@
             android:src="@drawable/pani_puri" >
         </ImageView>
 
+        <Button
+            android:id="@+id/select_image_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/item_menu_image"
+            android:layout_marginTop="15dp"
+            android:text="Select Image" />
+
         <RelativeLayout
             android:id="@+id/relativeLayout_from"
             android:layout_width="fill_parent"
@@ -166,7 +176,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/id_menu_item_zip"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:text="@string/add_to_menu" />
     </RelativeLayout>

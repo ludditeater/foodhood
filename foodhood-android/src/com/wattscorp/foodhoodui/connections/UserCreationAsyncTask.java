@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 public class UserCreationAsyncTask extends AsyncTask<String, Void, String> {
 	String forwardingActivity;
@@ -27,7 +28,6 @@ public class UserCreationAsyncTask extends AsyncTask<String, Void, String> {
 
 	@Override
 	protected void onPreExecute() {
-		// TODO Auto-generated method stub
 		super.onPreExecute();
 	}
 
@@ -54,27 +54,15 @@ public class UserCreationAsyncTask extends AsyncTask<String, Void, String> {
 
 	protected void onPostExecute(String result) {
 		super.onPostExecute(result);
-		if ("true".equals(result)) {
+		if (result != null && "true".equalsIgnoreCase(result.trim())) {
 			Intent forwardToActivity = new Intent(forwardingActivity);
 			forwardToActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			// context.getApplicationContext().finish();
+			forwardToActivity.putExtra("chefIdVal", newUser.getUsername());
 			context.getApplicationContext().startActivity(forwardToActivity);
 		} else {
-			AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
-			builder1.setMessage("There is an issue while creating user. Please try later.");
-			builder1.setCancelable(true);
-			builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					dialog.cancel();
-					Intent forwardToActivity = new Intent(forwardingActivity);
-					forwardToActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					// context.getApplicationContext().finish();
-					context.getApplicationContext().startActivity(forwardToActivity);
-				}
-			});
-			AlertDialog alert11 = builder1.create();
-			alert11.show();
+			int duration = Toast.LENGTH_LONG;
+			Toast toast = Toast.makeText(context, "There is an issue while creating user. Please try later.", duration);
+			toast.show();
 		}
-
 	}
 }

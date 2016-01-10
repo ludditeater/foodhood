@@ -3,7 +3,8 @@ package com.wattscorp.foodhoodui.fragments;
 import com.wattscorp.foodhoodui.R;
 import com.wattscorp.foodhoodui.connections.UserCreationAsyncTask;
 import com.wattscorp.foodhoodui.dto.User;
-import com.wattscorp.foodhoodui.helper.AcitivityConstants;
+import com.wattscorp.foodhoodui.helper.ActivityConstants;
+import com.wattscorp.foodhoodui.helper.GenericTextWatcher;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,25 +35,43 @@ public class FragmentSignup extends Fragment {
         confirmPassword = (EditText) rootView.findViewById(R.id.id_confirm_password);
         firstname = (EditText) rootView.findViewById(R.id.id_user_firstname);
         lastname = (EditText) rootView.findViewById(R.id.id_user_lastname);
-        
         isChef = (CheckBox) rootView.findViewById(R.id.id_chef_acct);
-        
         signup = (Button) rootView.findViewById(R.id.id_button_create);
+        firstname.addTextChangedListener(new GenericTextWatcher(firstname));
+        lastname.addTextChangedListener(new GenericTextWatcher(lastname));
+        email.addTextChangedListener(new GenericTextWatcher(email));
+        password.addTextChangedListener(new GenericTextWatcher(password));
+        confirmPassword.addTextChangedListener(new GenericTextWatcher(confirmPassword));
+
         signup.setOnClickListener(new View.OnClickListener() {
+        	
             @Override
             public void onClick(View v) {
+            	if (!(GenericTextWatcher.isNameValid(firstname,true))
+            	    | !(GenericTextWatcher.isNameValid(lastname,true))
+            	    | !(GenericTextWatcher.isEmailValid(email, true))
+            	    | !(GenericTextWatcher.isPasswordValid(password,true))
+            	) {
+            		return;
+            	}
                 String intentVal;
                 User newUser = new User();
+                String pwdVal = password.getText().toString();
+                String conPwdVal = confirmPassword.getText().toString();
                 newUser.setFirstname(firstname.getText().toString());
                 newUser.setLastname(lastname.getText().toString());
-                newUser.setPassword(password.getText().toString());
+                newUser.setPassword(pwdVal);
+                if (!conPwdVal.equals(pwdVal)) {
+                	confirmPassword.setError("Should match password value.");
+                	return;
+                }
                
                 newUser.setUsername(email.getText().toString());
                 if (isChef.isChecked()) {
-                    intentVal = AcitivityConstants.CHEF_ACTIVATION;
+                    intentVal = ActivityConstants.CHEF_ACTIVATION;
                     newUser.setUserrolename("CHEF");
                 } else {
-                    intentVal = AcitivityConstants.ACCOUNT_CREATION_CONFIRM;
+                    intentVal = ActivityConstants.ACCOUNT_CREATION_CONFIRM;
                     newUser.setUserrolename("CONSUMER");
                 }
                 new UserCreationAsyncTask(intentVal,v.getContext().getApplicationContext(), newUser).execute("");

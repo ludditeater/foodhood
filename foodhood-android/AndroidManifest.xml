@@ -50,10 +50,18 @@
             android:label="@string/title_activity_login_or_signup_activity_main" >
             <intent-filter>
                 <action android:name="com.wattscorp.foodhoodui.LoginOrSignupActivityMain" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:label="@string/title_forgot_password" >
+            <intent-filter>
+                <action android:name="com.wattscorp.foodhoodui.ForgotPasswordActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name=".fragments.FragmentSignup"
             android:label="@string/title_activity_fragment_signup" >

@@ -39,6 +39,7 @@ public class ChefMenuItem implements Parcelable {
 		chefZipcode = in.readString();
 		chefState = in.readString();
 		price = in.readString();
+		chefId = in.readString();
 	}
 
 
@@ -154,6 +155,7 @@ public class ChefMenuItem implements Parcelable {
 		dest.writeString(chefZipcode);
 		dest.writeString(chefState);
 		dest.writeString(price);
+		dest.writeString(chefId);
 	}
 
 	public static final Parcelable.Creator<ChefMenuItem> CREATOR = new Parcelable.Creator<ChefMenuItem>() {

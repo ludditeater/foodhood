@@ -135,4 +135,8 @@ public class SessionManager {
 	public boolean isLoggedIn() {
 		return pref.getBoolean(IS_LOGIN, false);
 	}
+
+	public boolean isChef() {
+		return User.CHEF_USER_ROLE.equalsIgnoreCase(pref.getString(KEY_USER_ROLE, "DUMMY"));
+	}
 }
